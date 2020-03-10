@@ -1,5 +1,6 @@
 package com.miro.ohboy.enums;
 
+//helper enum
 public enum LocationType {
     DIRECTORY("directory"), JAR("jar");
 

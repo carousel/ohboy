@@ -2,7 +2,7 @@ package com.miro.ohboy.config;
 
 import com.miro.ohboy.enums.LocationType;
 
-//model?
+//model
 public class Location {
     private final String locationName;
     private final LocationType locationType;

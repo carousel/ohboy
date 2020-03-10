@@ -3,6 +3,7 @@ package com.miro.ohboy;
 import com.miro.ohboy.config.Location;
 import com.miro.ohboy.services.LocationResolverImp;
 
+//main class
 public class Boot {
     public static void main(String[] args) {
         run(Boot.class);
