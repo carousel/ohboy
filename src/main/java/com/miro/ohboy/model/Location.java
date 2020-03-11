@@ -4,6 +4,10 @@ import com.miro.ohboy.enums.LocationType;
 
 //model
 public class Location {
+    public String getLocationName() {
+        return locationName;
+    }
+
     private final String locationName;
     private final LocationType locationType;
 
