@@ -17,7 +17,7 @@ public class DirectoryLocator implements ClassLocator {
 
     @Override
     public Set<Class<?>> locateClasses(String location) throws ClassLocationException {
-        this.locatedClasses.clear();
+        locatedClasses.clear();
         File file = new File(location);
         if (!file.isDirectory()) {
             throw new ClassLocationException(String.format(INVALID_DIRECTORY_PATH, location));
@@ -38,13 +38,13 @@ public class DirectoryLocator implements ClassLocator {
             for (File innerFile : file.listFiles()) {
                 this.scanDirectory(innerFile, packageName);
             }
-        } else {
+        }
+        if (file.isFile()) {
             if (!file.getName().endsWith(Constants.JAVA_BINARY_EXTENSION)) {
                 return;
             }
             final String className = packageName + file.getName().replace(Constants.JAVA_BINARY_EXTENSION, "");
-            this.locatedClasses.add(Class.forName(className));
+            locatedClasses.add(Class.forName(className));
         }
-
     }
 }
