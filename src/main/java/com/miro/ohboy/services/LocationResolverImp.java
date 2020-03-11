@@ -1,6 +1,6 @@
 package com.miro.ohboy.services;
 
-import com.miro.ohboy.config.Location;
+import com.miro.ohboy.model.Location;
 import com.miro.ohboy.enums.LocationType;
 
 import java.io.File;

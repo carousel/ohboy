@@ -1,4 +1,4 @@
-package com.miro.ohboy.config;
+package com.miro.ohboy.model;
 
 import com.miro.ohboy.enums.LocationType;
 
