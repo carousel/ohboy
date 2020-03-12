@@ -51,7 +51,6 @@ public class ServiceScannerImp implements ServiceScanner {
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
-
     private Constructor<?> findSuitableConstructor(Class<?> className) {
         for (Constructor<?> declaredConstructor : className.getDeclaredConstructors()) {
             if (declaredConstructor.isAnnotationPresent(Autowired.class)) {
@@ -80,11 +79,13 @@ public class ServiceScannerImp implements ServiceScanner {
         final Set<Method> beanMethods = new HashSet<>();
         for (Method declaredMethod : className.getDeclaredMethods()) {
             if (declaredMethod.getParameterCount() != 0
-                    || declaredMethod.getReturnType() != void.class
+                    && declaredMethod.getReturnType() != void.class
                     && declaredMethod.getReturnType() != Void.class) {
                 continue;
             }
+
             for (Class<? extends Annotation> customBeanAnnotation : customBeanAnnotations) {
+//                System.out.println(customBeanAnnotation.getName());
                 if (declaredMethod.isAnnotationPresent(customBeanAnnotation)) {
                     declaredMethod.setAccessible(true);
                     beanMethods.add(declaredMethod);

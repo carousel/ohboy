@@ -6,7 +6,7 @@ import com.miro.ohboy.enums.LocationType;
 import java.io.File;
 
 //service
-public class LocationResolverImp implements LocationResolver {
+public class LocationResolverImpl implements LocationResolver {
 
     private static final String JAR_EXTENSION = ".jar";
 

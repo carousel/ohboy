@@ -2,6 +2,13 @@ miroslav.trninic@gmail.com
 
 Ohboy, I am reinventing the wheel with new DIP/IoC/DI framework.
 
+# Repeated patterns
+    service (behavior)
+    model (data)
+    config (change)
+    set (data structure)
+    reflection
+
 
  1. Locate executable location and type (jar or directory) from the directory of main class (Boot)
  Boot (main class)
@@ -20,4 +27,7 @@ Ohboy, I am reinventing the wheel with new DIP/IoC/DI framework.
   5. ServiceDetails model (reflection data about service)
         ServiceDetailConstructorComparator
   6. ServiceScanner interface
+  7. ServiceScanner is mapping found classes to found annotations and saving them to temporary (runtime) HashSet
+  8. ServiceBeanDetails extends ServiceDetails - details about annotated service bean method
+  9. ObjectInstantiationService - responsible for invoking annotated services and beans inside the services
  

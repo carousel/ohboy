@@ -2,7 +2,6 @@ package com.miro.ohboy;
 
 import com.miro.ohboy.config.OhboyConfig;
 import com.miro.ohboy.enums.LocationType;
-import com.miro.ohboy.exception.ClassLocationException;
 import com.miro.ohboy.model.Location;
 import com.miro.ohboy.model.ServiceDetails;
 import com.miro.ohboy.services.*;
@@ -21,13 +20,18 @@ public class Boot {
     }
 
     public static void run(Class<Boot> startupClass, OhboyConfig ohboyConfig) {
-        Location location = new LocationResolverImp().resolveLocation(startupClass);
+        //search for executable location
+        Location location = new LocationResolverImpl().resolveLocation(startupClass);
+        //JAR or directory?
         ClassLocator classLocator = new DirectoryLocator();
         if (location.getLocationType().equals(LocationType.JAR)) {
             classLocator = new JarLocator();
         }
+        //class locator is service
         Set<Class<?>> locatedClasses = classLocator.locateClasses(location.getLocationName());
+        //service scanner is service
         ServiceScanner serviceScanner = new ServiceScannerImp(ohboyConfig.annotations());
+
         Set<ServiceDetails<?>> serviceDetails = serviceScanner.mapServices(locatedClasses);
         System.out.println(serviceDetails);
     }
