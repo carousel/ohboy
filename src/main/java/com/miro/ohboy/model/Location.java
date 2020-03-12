@@ -1,5 +1,8 @@
 package com.miro.ohboy.model;
 
+import com.miro.ohboy.annotation.Autowired;
+import com.miro.ohboy.annotation.Bean;
+import com.miro.ohboy.annotation.Service;
 import com.miro.ohboy.enums.LocationType;
 
 //model

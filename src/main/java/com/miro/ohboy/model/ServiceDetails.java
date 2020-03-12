@@ -15,6 +15,22 @@ public class ServiceDetails<T> {
     private Method[] beans;
     private List<ServiceDetails<?>> dependentServices;
 
+    public ServiceDetails(Class<T> serviceType,
+                          Annotation annotation,
+                          Constructor<T> targetConstructor,
+                          Method postConstructMethod,
+                          Method preDestroyMethod,
+                          Method[] beans) {
+        this();
+        this.setServiceType(serviceType);
+        this.setAnnotation(annotation);
+        this.setTargetConstructor(targetConstructor);
+        this.setPostConstructMethod(postConstructMethod);
+        this.setPreDestroyMethod(preDestroyMethod);
+        this.setBeans(beans);
+
+    }
+
     public ServiceDetails() {
         dependentServices = new ArrayList<>();
     }
