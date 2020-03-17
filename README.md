@@ -30,4 +30,6 @@ Ohboy, I am reinventing the wheel with new DIP/IoC/DI framework.
   7. ServiceScanner is mapping found classes to found annotations and saving them to temporary (runtime) HashSet
   8. ServiceBeanDetails extends ServiceDetails - details about annotated service bean method
   9. ObjectInstantiationService - responsible for invoking annotated services and beans inside the services
+  10. InstantiationConfig/EnqueuedServiceDetails
+  11. ServiceInstanitationService
  

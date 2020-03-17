@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
+//service
 public class DirectoryLocator implements ClassLocator {
     private static final String INVALID_DIRECTORY_PATH = "Invalid directory path";
     private final Set<Class<?>> locatedClasses;

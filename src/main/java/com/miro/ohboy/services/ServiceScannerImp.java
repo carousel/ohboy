@@ -13,6 +13,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+//service
 public class ServiceScannerImp implements ServiceScanner {
     private final CustomAnnotationsConfig customAnnotationsConfig;
 

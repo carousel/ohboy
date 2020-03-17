@@ -4,13 +4,20 @@ import com.miro.ohboy.config.configs.CustomAnnotationsConfig;
 
 public class OhboyConfig {
 
-    private final CustomAnnotationsConfig annotations;
+    private final CustomAnnotationsConfig customAnnotationsConfig;
+
+    private final InstantiationConfig instantiationConfig;
+
+    public InstantiationConfig instantiationConfig() {
+        return this.instantiationConfig;
+    }
 
     public OhboyConfig() {
-        annotations = new CustomAnnotationsConfig(this);
+        customAnnotationsConfig = new CustomAnnotationsConfig(this);
+        instantiationConfig = new InstantiationConfig(this);
     }
     public CustomAnnotationsConfig annotations() {
-        return annotations;
+        return customAnnotationsConfig;
     }
 
     public OhboyConfig build() {

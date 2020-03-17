@@ -11,6 +11,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+//service
 public class ObjectInstantiationServiceImpl implements ObjectInstantiationService {
     private static final String INVALID_PARAMETERS_COUNT = "Invalid paramteters count for '%'";
 
@@ -29,13 +30,14 @@ public class ObjectInstantiationServiceImpl implements ObjectInstantiationServic
         }
     }
 
-    private void invokePostConstruct(ServiceDetails<?> serviceDetails) {
-        if (serviceDetails.getPostConstructMethod() != null) {
+    private void invokePostConstruct(ServiceDetails<?> serviceDetails) throws PostCostructException{
+        if (serviceDetails.getPostConstructMethod() == null) {
             return;
         }
         try {
             serviceDetails.getPostConstructMethod().invoke(serviceDetails.getInstance());
-        } catch (IllegalAccessException | InvocationTargetException e) {
+        }
+        catch (IllegalAccessException | InvocationTargetException e) {
             throw new PostCostructException(e.getMessage(), e);
         }
     }
